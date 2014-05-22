@@ -1,0 +1,25 @@
+{
+  "name": "flagjs",
+  "version": "0.1.0",
+  "description": "A bitwise abstraction library",
+  "main": "flag.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "grunt test"
+  },
+  "keywords": [
+    "bitwise",
+    "flags"
+  ],
+  "author": "Ryan Struhl",
+  "license": "MIT",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-uglify": "^0.4.0",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-contrib-watch": "^0.6.1",
+    "grunt-contrib-qunit": "^0.4.0"
+  }
+}
