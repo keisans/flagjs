@@ -324,5 +324,5 @@ Flags.prototype = (function(){
 if(typeof define === 'function' && define.amd){
     define('flags', [], Flags);
 } else if (typeof exports !== 'undefined'){
-    
+    module.exports = Flags;
 }
