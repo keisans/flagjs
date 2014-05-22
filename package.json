@@ -3,6 +3,10 @@
   "version": "0.1.0",
   "description": "A bitwise abstraction library",
   "main": "flag.js",
+  "repository" : { 
+    "type" : "git",
+    "url" : "https://github.com/keisans/flagjs"
+  },
   "directories": {
     "test": "test"
   },
