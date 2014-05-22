@@ -17,7 +17,7 @@ module.exports = function(grunt) {
         banner: '<%= banner %>'
       },
       dist: {
-        src: 'broken.js',
+        src: 'flag.js',
         dest: 'dist/<%= pkg.name %>.min.js'
       }
     },

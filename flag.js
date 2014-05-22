@@ -3,7 +3,7 @@
  * @constructor
  * @param {Array} newFlags Optional array of flag keys to define when the flags module is instantiated
  */
-Flags = function( newFlags ){
+var Flags = function( newFlags ){
     this.flags = 0;
     this.flagHash = {};
     this.keys = 0;
