@@ -3,6 +3,7 @@
  * @constructor
  * @param {Array} newFlags Optional array of flag keys to define when the flags module is instantiated
  */
+/*global module,define*/
 var Flags = function( newFlags ){
     this.flags = 0;
     this.flagHash = {};
@@ -321,6 +322,7 @@ Flags.prototype = (function(){
     return _public;
 }());
 
+// Expose module to AMD and Node systems
 if(typeof define === 'function' && define.amd){
     define('flags', [], Flags);
 } else if (typeof exports !== 'undefined'){
