@@ -84,6 +84,6 @@ module.exports = function(grunt) {
 
   // Default task.
   grunt.registerTask('default', ['qunit', 'jshint', 'uglify']);
-  grunt.registerTask('test', ['qunit']);
+  grunt.registerTask('test', ['qunit', 'nodeunit']);
 
 };
