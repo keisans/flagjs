@@ -32,6 +32,13 @@ module.exports = function(grunt) {
       }
     },
 
+    nodeunit: {
+      all: ['test/*_test.js'],
+      options: {
+        reporter: 'verbose'
+      }
+    },
+
     jshint: {
       options: {
         curly: true,
@@ -73,6 +80,7 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
   grunt.loadNpmTasks('grunt-contrib-qunit');
+  grunt.loadNpmTasks('grunt-contrib-nodeunit');
 
   // Default task.
   grunt.registerTask('default', ['qunit', 'jshint', 'uglify']);
