@@ -178,6 +178,30 @@ module.exports = {
 		test.equal(this.flag.flags, 0, 'no flags should be set');
 		test.deepEqual(this.flag.flagHash, {}, 'flaghash shoul be an empty object');
 		test.done();
+	},
+
+	flagMaxLoad: function(test){
+		var oversizedList = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'aa', 'ab', 'ac', 'ad', 'ae', 'af'];
+		this.flag.unregister();
+		try{
+			this.flag.newFlags(oversizedList);
+		} catch(err) {
+			test.ok(false, 'throws an error when attempting to create more than 32 flags');
+		}
+
+		test.ok(true, 'a flag instance allows 32 flags to be set');
+		test.done();
+	},
+
+	flagOverLoad: function(test){
+		var oversizedList = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'aa', 'ab', 'ac', 'ad', 'ae', 'af', 'ag'];
+		this.flag.unregister();
+		try{
+			this.flag.newFlags(oversizedList);
+		} catch(err) {
+			test.ok(true, 'throws an error when attempting to create more than 32 flags');
+			test.done();
+		}
 	}
 };
 

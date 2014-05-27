@@ -29,7 +29,7 @@ Flags.prototype = (function(){
      */
     var createFlag = function( name ){
         if(this.flagHash[name]) return this.flagHash[name];
-        
+        if(this.keys === 32) throw 'a single instance of the flag module can only hold 32 flags. Try instantiating a second copy of the flag object';
         this.flagHash[name] = Math.pow(2, this.keys);
         this.keys += 1;
     };

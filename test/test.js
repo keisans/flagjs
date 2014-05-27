@@ -162,7 +162,30 @@ test('a flag instance should be able to unregister itself', function(){
 	equal(flag.keys, 0, 'no keys should be set');
 	equal(flag.flags, 0, 'no flags should be set');
 	deepEqual(flag.flagHash, {}, 'flaghash shoul be an empty object');
-})
+});
+
+test('a flag instance should be able to register up to 32 flags', function(){
+	expect(1);
+	var oversizedList = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'aa', 'ab', 'ac', 'ad', 'ae', 'af'];
+	flag.unregister();
+	try{
+		flag.newFlags(oversizedList);
+	} catch(err) {
+		ok(false, 'throws an error when attempting to create more than 32 flags');
+	}
+
+	ok(true, 'a flag instance allows 32 flags to be set');
+});
+
+test('a flag instance should not be able to register more than 32 flags', function(){
+	var oversizedList = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h', 'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's', 't', 'u', 'v', 'w', 'x', 'y', 'z', 'aa', 'ab', 'ac', 'ad', 'ae', 'af', 'ag'];
+	flag.unregister();
+	try{
+		flag.newFlags(oversizedList);
+	} catch(err) {
+		ok(true, 'throws an error when attempting to create more than 32 flags');
+	}
+});
 
 
 
