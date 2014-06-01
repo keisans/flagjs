@@ -143,9 +143,10 @@ test('a flag instance should be able to return an array of set flags', function(
 });
 
 test('a flag instance shoul be able to return an object representing its current state', function(){
-	deepEqual(flag.objectify(), {cat: false, dog: false, bat: false}, 'objectify should return an object with all set keys set to false');
+	deepEqual(flag.toJSON(), {cat: false, dog: false, bat: false}, 'toJSON should return an object with all set keys set to false');
 	flag.add(['cat', 'bat']);
-	deepEqual(flag.objectify(), {cat: true, dog: false, bat: true}, 'objectify shoul update to represent the current state');
+	deepEqual(flag.toJSON(), {cat: true, dog: false, bat: true}, 'toJSON shoul update to represent the current state');
+	equal(JSON.stringify(flag), "{\"cat\":true,\"dog\":false,\"bat\":true}", 'flag object should respond to JSON.stringify correctly');
 })
 
 test('a flag instance should able to reset to a given state', function(){

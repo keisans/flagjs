@@ -244,12 +244,17 @@ Flags.prototype = (function(){
     
     /**
      * Converts the current state of the flag object into a javascript object with the
-     * flag keys as the keys and true or false as the value
+     * flag keys as the keys and true or false as the value. This method also allows the
+     * flag object to interact correctly with JSON methods
      *
-     * @method objectify
+     * @example
+     *     JSON.stringify(flag);
+     *     flag.toJSON();
+     *
+     * @method toJSON
      * @return {Object} An object representing the current state of the flags object
      */
-    _public.objectify = function(){
+    _public.toJSON = function(){
         var oFromFlags = {};
         for(var key in this.flagHash){
             if (this.flagHash.hasOwnProperty(key)){

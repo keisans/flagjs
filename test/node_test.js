@@ -158,9 +158,10 @@ module.exports = {
 	},
 
 	objectReturn: function(test){
-		test.deepEqual(this.flag.objectify(), {cat: false, dog: false, bat: false}, 'objectify should return an object with all set keys set to false');
+		test.deepEqual(this.flag.toJSON(), {cat: false, dog: false, bat: false}, 'objectify should return an object with all set keys set to false');
 		this.flag.add(['cat', 'bat']);
-		test.deepEqual(this.flag.objectify(), {cat: true, dog: false, bat: true}, 'objectify shoul update to represent the current state');
+		test.deepEqual(this.flag.toJSON(), {cat: true, dog: false, bat: true}, 'objectify shoul update to represent the current state');
+		test.equal(JSON.stringify(this.flag), "{\"cat\":true,\"dog\":false,\"bat\":true}", 'flag object should respond to JSON.stringify correctly');
 		test.done();
 	},
 
