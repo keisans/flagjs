@@ -241,6 +241,25 @@ Flags.prototype = (function(){
         return aFromFlags;
     };
 
+    
+    /**
+     * Converts the current state of the flag object into a javascript object with the
+     * flag keys as the keys and true or false as the value
+     *
+     * @method objectify
+     * @return {Object} An object representing the current state of the flags object
+     */
+    _public.objectify = function(){
+        var oFromFlags = {};
+        for(var key in this.flagHash){
+            if (this.flagHash.hasOwnProperty(key)){
+                oFromFlags[key] = (this.flags & this.flagHash[key]) ? true : false;
+            }
+        }
+
+        return oFromFlags;
+    }
+
 
     /**
      * Sets a flag as true on the user

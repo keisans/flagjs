@@ -142,6 +142,12 @@ test('a flag instance should be able to return an array of set flags', function(
 	deepEqual(flag.parseFlags(), ['cat', 'dog'], 'parseflag should return an array of set flags');
 });
 
+test('a flag instance shoul be able to return an object representing its current state', function(){
+	deepEqual(flag.objectify(), {cat: false, dog: false, bat: false}, 'objectify should return an object with all set keys set to false');
+	flag.add(['cat', 'bat']);
+	deepEqual(flag.objectify(), {cat: true, dog: false, bat: true}, 'objectify shoul update to represent the current state');
+})
+
 test('a flag instance should able to reset to a given state', function(){
 	flag.add(['cat', 'dog']);
 	flag.reset(6);

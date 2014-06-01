@@ -157,6 +157,13 @@ module.exports = {
 		test.done();
 	},
 
+	objectReturn: function(test){
+		test.deepEqual(this.flag.objectify(), {cat: false, dog: false, bat: false}, 'objectify should return an object with all set keys set to false');
+		this.flag.add(['cat', 'bat']);
+		test.deepEqual(this.flag.objectify(), {cat: true, dog: false, bat: true}, 'objectify shoul update to represent the current state');
+		test.done();
+	},
+
 	flagReset: function(test){
 		this.flag.add(['cat', 'dog']);
 		this.flag.reset(6);
