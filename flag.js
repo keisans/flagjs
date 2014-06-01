@@ -348,7 +348,9 @@ Flags.prototype = (function(){
 
 // Expose module to AMD and Node systems
 if(typeof define === 'function' && define.amd){
-    define('flags', [], Flags);
+    define('flags', [], function(){
+        return Flags;
+    });
 } else if (typeof exports !== 'undefined'){
     module.exports = Flags;
 }
