@@ -1,6 +1,6 @@
 {
   "name": "flagjs",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "A bitwise abstraction library",
   "main": "flag.js",
   "repository": {
