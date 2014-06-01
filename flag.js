@@ -258,7 +258,7 @@ Flags.prototype = (function(){
         }
 
         return oFromFlags;
-    }
+    };
 
 
     /**
